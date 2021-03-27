@@ -1,0 +1,35 @@
+<div class="navbar-custom">
+    <div class="container">
+      <figure class="logo-img">
+        <a href="/"> <img src="/assets/logo.jpeg" style="opacity: 0.2;"></a>
+      </figure>
+      <div class="menu" id="menu">
+        <nav>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+          <div class="navbarTxt">
+            <!-- <a href="#">Sign In</a> | <a href="sign up.html">Register</a> -->
+            <% if(user){ %>
+              <% if(type==='client'){ %>
+                <a href="clients/dashboard">Dashboard |</a>
+              <% }else{ %>
+                <a href="lawyers/dashboard">Dashboard |</a>
+              <% } %>
+                <form action="/logout" method="POST" style="display: inline;">
+                    <button type="submit" style="background: none; border: none; color: #6c8294;"><b>Logout</b></button>
+                </form>
+            <% }else{ %>
+            
+                <a href="/clients/login">Login as a client |</a>
+               <a href="/lawyers/login">Login as a lawyer</a>
+    
+            <% } %>
+            </div>              
+      </div>
+      <div class="menu-button" id="menu-button"></div>
+    </div>
+  </div>
