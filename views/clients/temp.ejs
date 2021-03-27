@@ -1,0 +1,11 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <a href="/clients/<%= user._id %>">text</a>
+    <form action="/logout" method="POST">
+        <p><%= user._id %></p>
+        <button type = "submit">Logout</button>
+    </form>
+<%- include('../includes/end.ejs') %>
