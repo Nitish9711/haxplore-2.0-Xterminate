@@ -40,7 +40,11 @@ _Add some screens and a demo_
 
 #### Usage
 
-_Tell in steps how can we setup your application. Also mention all relevant requirements and links._
+1. Clone this Repo to your Local Machine.
+2. Open The Terminal/CMD in the folder haxplore-2.0-Xterminate.
+3. Run command "npm i" which will install all the node modules required to run this project
+4. Then run command "npm start" to start server
+5. Open "localhost:3000" on your browser to use web application
 
 
 #### AWS Services Used
