@@ -32,16 +32,29 @@ _The following technologies will be used to make this application -_
 - _Mongoose_
 - _MongoDB Atlas_
 - _Razorpay API_
-- _OpenCage Geocoding API_
-
-#### Screenshots/Demo Video
-![Home](assets/landing.jpeg)
-![contact](assets/contact.jpeg)
-![price](assets/price.jpeg)
-
+- _amazon lex bot_
+- _ejs_
+- _ipinfo api_
+  
 
 #### PPT LINK
 https://drive.google.com/file/d/10uIRYKlqtOHgCgjRiJH5ZL68vEmbI8f_/view
+
+#### demo video LINK
+https://drive.google.com/file/d/10uIRYKlqtOHgCgjRiJH5ZL68vEmbI8f_/view
+
+
+#### Screenshots/Demo Video
+![Home](assets/landing.jpeg)
+
+![appointment](assets/appointment.png)
+
+![searching](assets/searching.png)
+
+![searching](assets/videochat.png)
+
+
+
 
 _Add some screens and a demo_
 
