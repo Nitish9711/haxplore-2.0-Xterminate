@@ -10,7 +10,7 @@
             </li>
         <% } %>
     </ul> -->
-    <div class="container" style="margin-top: 100px;">
+    <div class="container" style="margin: 130px;">
         <h1>Pending</h1>
         <div class="row">
             <% for(const appointment of appointments){ %>
@@ -28,7 +28,34 @@
                                         <div><%=appointment.clientId.email%></div>
                                         <div><%=appointment.clientId.phone%></div>
                                         <div class="mt-2">
-                                            <button class="btn btn-success">Accept</button>
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#acceptModal" data-target="#acceptModal">Accept</button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <form action="/lawyers/bookAppointment/<%=appointment._id%>" method="POST" id="appointment-form">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Schedule meeting</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    
+                                                    <div class="modal-body">
+                                                        <label for="time">Select time for meeting: </label>
+                                                        <input  name = "time" type="time" class="form-control" id="time">
+                                                        <br>
+                                                        <label for="date">Select date for meeting: </label>
+                                                        <input name = "date" type="date" class="form-control" id="date">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Fix Appointment</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                                </div>
+                                            </div>
                                             <button class="btn btn-danger delete-btn" id="<%=appointment._id%>">Reject</button>
                                         </div>
                                     </div>

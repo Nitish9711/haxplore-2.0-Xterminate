@@ -1,4 +1,15 @@
-<%- include('header') %>
+<%- include('header.ejs') %>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <style>
+    .container {
+      padding: 30px;
+    }
+  </style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -11,9 +22,9 @@
               <div class="profile-picture">
                 <div class="img-wrapper"
                   style="padding: 10px;width: fit-content;border: solid 1.5px #a1a1a1;border-radius: 5px;">
-                  <img style="height: 145px; border-radius: 7px;" title=<%=user.name.first %>
-                  <%=user.name.last%>
-                    src="<%=user.image%>"
+                  <img style="height: 145px; border-radius: 7px;" title=<%=lawyer.name.first %>
+                  <%=lawyer.name.last%>
+                    src="<%=lawyer.image%>"
                       alt="One of the best Advocates &amp; Lawyers in Delhi - Advocate Sudershani Ray"
                       class="img-fluid"
                       />
@@ -28,8 +39,8 @@
                 <div class="name">
                   <h2 style="font-size: 24px; margin-bottom: 10px">
                     <b>
-                      <%= user.name.first %>
-                        <%=user.name.last%>
+                      <%= lawyer.name.first %>
+                        <%=lawyer.name.last%>
                     </b>
                   </h2>
                   <div class="rating">
@@ -49,7 +60,11 @@
                     <span class="score">100</span>+ user ratings
                   </div>
                 </div>
-               
+                <% if(type==='client' ){ %>
+                  <form action="/lawyers/<%=lawyer._id%>" method="POST">
+                    <button class="btn btn-outline-primary">Book Appointment</button>
+                  </form>
+                  <% } %>
               </div>
               <hr />
               <div class="row">
@@ -60,17 +75,17 @@
                     </span>
                     <span class="item-label">Location: </span>
                     <span class="value">
-                      <%= user.address.house %>
-                        <%=user.name.locality%>
-                          <%=user.name.city%>
-                            <%=user.name.country%>
+                      <%= lawyer.address.house %>
+                        <%=lawyer.name.locality%>
+                          <%=lawyer.name.city%>
+                            <%=lawyer.name.country%>
                     </span>
                   </div>
                   <div class="item-info">
                     <span class="icon-holder"><i class="bi bi-briefcase-fill" style="color: #4b9142"></i></span>
                     <span class="item-label">Experience: </span>
                     <span class="value">
-                      <%= user.experience.years %> years
+                      <%= lawyer.experience.years %> years
                     </span>
                   </div>
                 </div>
@@ -84,7 +99,7 @@
                     <span class="icon-holder"><i class="bi bi-signpost-split-fill" style="color: #4b9142"></i></span>
                     <span class="item-label">Practice areas: </span>
                     <span class="value">
-                      <%= user.practiceAreas %>
+                      <%= lawyer.practiceAreas %>
                     </span>
                   </div>
                 </div>
@@ -93,30 +108,30 @@
             </div>
           </div>
           <div class="profile-summary">
-            <%= user.aboutMe %>
+            <%= lawyer.aboutMe %>
           </div>
           <div class="d-flex justify-content-between mt-3">
             <div style="font-weight: bold;">SPECIALIZATION</div>
             <div>
-              <%=user.specialization.specType%>
+              <%=lawyer.specialization.specType%>
             </div>
           </div>
           <div class="d-flex justify-content-between mt-3">
             <div style="font-weight: bold;">COURTS</div>
             <div>
-              <%=user.courts%>
+              <%=lawyer.courts%>
             </div>
           </div>
           <div class="d-flex justify-content-between mt-3">
             <div style="font-weight: bold;">EDUCATION</div>
             <div>
-              <%=user.education.institutionName%> - <%=user.education.degreeType%> - <%=user.education.completed%>
+              <%=lawyer.education.institutionName%> - <%=lawyer.education.degreeType%> - <%=lawyer.education.completed%>
             </div>
           </div>
           <div class="d-flex justify-content-between mt-3">
             <div style="font-weight: bold;">EXPERIENCE</div>
             <div>
-              <%=user.experience.expType%> - <%=user.experience.workPlace%> - <%=user.experience.years%>
+              <%=lawyer.experience.expType%> - <%=lawyer.experience.workPlace%> - <%=lawyer.experience.years%>
             </div>
           </div>
         </div>
@@ -134,9 +149,9 @@
     
     <script>
       var ctx = document.getElementById("myChart").getContext('2d');
-      var totalCase = <%= user.specialization.totalCases %>;
-      var won = <%= user.specialization.wonCases %>;
-      var pending = <%= user.specialization.pendingCases %>;
+      var totalCase = <%= lawyer.specialization.totalCases %>;
+      var won = <%= lawyer.specialization.wonCases %>;
+      var pending = <%= lawyer.specialization.pendingCases %>;
       var lost = totalCase- won -pending;
       var myChart = new Chart(ctx, {
         type: 'pie',
@@ -153,5 +168,5 @@
         }
       });
     </script>
-
-<%- include('footer') %>
+  
+  <%- include('footer') %>

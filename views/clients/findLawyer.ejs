@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/styles/findLawyer.css">
     <link rel="stylesheet" href="/css/lawyerCard.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
     <body>
         
         <main>
@@ -19,13 +21,16 @@
                         <div class="card findLawyerCard">
                             <a href="/" >Home</a>
                             <h2>Search</h2>
-                            <select name="city" id="city" class="form-control">
-                                <option value="None">Choose City</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Chennai">Chennai</option>
-                                <option value="Hyderabad">Hyderabad</option>
-                            </select>
+                            <div style="display: flex;">
+                                <select name="city" id="city" class="form-control">
+                                    <option value="None">Choose City</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                                <button class="btn btn-primary ms-2" data-toggle="toggle" data-placement="top" title="My Location" type="button" id="my-location"><i class="bi bi-geo-alt-fill"></i></button>
+                            </div>
                             <select name="practiceAreas" id="practiceAreas" class="form-control">
                                 <option value="None">Practice area</option>
                                 <option value="Divorce">Divorce</option>
@@ -96,6 +101,7 @@
 
            
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             const lawyerCardContainer = document.getElementById('lawyer-card-container');
             const searchForm = document.getElementById('search-form');
@@ -192,6 +198,23 @@
 
             searchForm.addEventListener('submit',async function(e){
                 e.preventDefault();
+                lawyerCardContainer.innerHTML = '';
+                const data = await searchRequest();
+                console.log(data);
+                for(const x of data) addCard(x);
+            })
+
+
+
+            const myLocation = document.getElementById('my-location');
+            async function myLoc(){
+                return axios.get('https://ipinfo.io/json?token=7cb8e226b670d6');
+            }
+            myLocation.addEventListener('click',async function(){
+                const res = await myLoc();
+                const cityData = res.data.city;
+                city.value = cityData;
+                
                 lawyerCardContainer.innerHTML = '';
                 const data = await searchRequest();
                 console.log(data);

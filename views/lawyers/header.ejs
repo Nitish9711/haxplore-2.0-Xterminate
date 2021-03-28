@@ -46,7 +46,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="/lawyers/dashboard">Home</a></li>
+          <% if(type==='lawyer'){ %>
+            <li><a class="nav-link scrollto" href="/lawyers/dashboard">Home</a></li>
           <li><a class="nav-link scrollto " href="/lawyers/appointments">Appointments</a></li>
 
 
@@ -72,6 +73,9 @@
             
 
           </li>
+          <% }else{ %>
+            <li><a class="nav-link scrollto" href="/clients/dashboard">Home</a></li>
+          <% } %>
 
 
         </ul>

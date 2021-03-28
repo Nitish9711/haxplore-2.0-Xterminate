@@ -1,6 +1,6 @@
 exports.ensureLogin = (req,res,next) => {
     if(req.isAuthenticated()) next();
-    else throw new Error('Please Login');
+    else res.redirect('/');
 }
 
 exports.ensureNoLogin = (req,res,next) => {
