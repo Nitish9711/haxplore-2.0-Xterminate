@@ -32,7 +32,8 @@ _The following technologies will be used to make this application -_
 - _Mongoose_
 - _MongoDB Atlas_
 - _Razorpay API_
-- _amazon lex bot_
+- _ AWS amazon lex bot_
+- _ aws elastic beanstalk for hosting the application
 - _ejs_
 - _ipinfo api_
   
@@ -43,6 +44,10 @@ https://drive.google.com/file/d/10uIRYKlqtOHgCgjRiJH5ZL68vEmbI8f_/view
 #### demo video LINK
 https://drive.google.com/file/d/10uIRYKlqtOHgCgjRiJH5ZL68vEmbI8f_/view
 
+
+#### WEBSITE LINK
+1.  http://advoc-env.eba-rc3fxmmu.us-west-2.elasticbeanstalk.com/
+2.  https://advoc-lawyers.herokuapp.com/
 
 #### Screenshots/Demo Video
 ![Home](assets/landing.jpeg)
@@ -70,6 +75,11 @@ Follow these steps to run the application on your local machine -
 #### AWS Services Used
 
 _Write in brief about how you used AWS service to improve your application._
+1. AWS Elastic Beanstalk
+    We have used elastic beanstalk to host our node server as it easy-to-use service for deploying and scaling web applications and services.You can simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.
+
+2. AWS amazon lex
+   we have used this service for building our website chat bot. we impleted our bot with with lamda function.
 
 
 
