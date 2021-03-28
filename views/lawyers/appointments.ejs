@@ -11,7 +11,7 @@
         <% } %>
     </ul> -->
     <div class="container" style="margin: 130px;">
-        <h1>Pending</h1>
+        <h1>Pending Request</h1>
         <div class="row">
             <% for(const appointment of appointments){ %>
                 <% if(!appointment.isCompleted){ %>
@@ -28,7 +28,7 @@
                                         <div><%=appointment.clientId.email%></div>
                                         <div><%=appointment.clientId.phone%></div>
                                         <div class="mt-2">
-                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#acceptModal" data-target="#acceptModal">Accept</button>
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#acceptModal" data-target="#acceptModal">Schedule meeting</button>
                                             <!-- Modal -->
                                             <div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -67,7 +67,7 @@
             <% } %>
         </div>
 
-        <h1 class="mt-5">Completed</h1>
+        <h1 class="mt-5">Completed Request</h1>
         <div class="row">
             <% for(const appointment of appointments){ %>
                 <% if(appointment.isCompleted){ %>

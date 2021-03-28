@@ -217,7 +217,7 @@ router.post(
                 console.log(mailList);
                 var date = req.body.date;
                 var time = req.body.time;
-                var meetLink = "https://adityaharsh2001.github.io/vc/";
+                var meetLink = "https://advocmeet.herokuapp.com/a8b4ee34-d9ec-4297-9a90-fe73267ccff5";
                 const transporter = nodemailer.createTransport({
                   host: 'smtp-mail.outlook.com',
                   service: 'hotmail',
