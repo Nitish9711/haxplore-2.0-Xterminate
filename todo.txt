@@ -1,0 +1,7 @@
+1. color change for registratio form
+2. logout button improvment
+3. change the color of signin button
+4. lawyer profile completely change
+5. contact us
+6. profile for lawyer
+7. booking system

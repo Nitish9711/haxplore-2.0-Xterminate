@@ -1,5 +1,5 @@
 <%- include('header') %>
-    <ul>
+    <!-- <ul>
         <% for(const appointment of appointments){ %>
             <li>
                 clientId: <%=appointment.clientId%>
@@ -9,5 +9,75 @@
                 <a href="https://adityaharsh2001.github.io/videochat/index.html" class="btn btn-primary">Book an appointment</a>
             </li>
         <% } %>
-    </ul>
+    </ul> -->
+    <div class="container" style="margin-top: 100px;">
+        <h1>Pending</h1>
+        <div class="row">
+            <% for(const appointment of appointments){ %>
+                <% if(!appointment.isCompleted){ %>
+                    <div class="col-6">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-2" style="width: fit-content;">
+                                        <img src="<%=appointment.clientId.image%>" width="50px" class="img-fluid" style="display: inline-block;">
+                                    </div>
+                                    <div class="col">
+                                        <div><%=appointment.clientId.name.first%> <%=appointment.clientId.name.last%></div>
+                                        <div><%=appointment.clientId.gender%></div>
+                                        <div><%=appointment.clientId.email%></div>
+                                        <div><%=appointment.clientId.phone%></div>
+                                        <div class="mt-2">
+                                            <button class="btn btn-success">Accept</button>
+                                            <button class="btn btn-danger delete-btn" id="<%=appointment._id%>">Reject</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+
+        <h1 class="mt-5">Completed</h1>
+        <div class="row">
+            <% for(const appointment of appointments){ %>
+                <% if(appointment.isCompleted){ %>
+                    <div class="col-6">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-2" style="width: fit-content;">
+                                        <img src="<%=appointment.clientId.image%>" width="50px" class="img-fluid" style="display: inline-block;">
+                                    </div>
+                                    <div class="col">
+                                        <div><%=appointment.clientId.name.first%> <%=appointment.clientId.name.last%></div>
+                                        <div><%=appointment.clientId.gender%></div>
+                                        <div><%=appointment.clientId.email%></div>
+                                        <div><%=appointment.clientId.phone%></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function removeCard(){
+            const card = this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+            try{
+                await axios.delete(`/lawyers/<%=user._id%>/${this.id}`);
+                card.remove();
+            }catch{
+
+            }
+        }
+        const deleteBtns = document.querySelectorAll('.delete-btn');
+        for(const btn of deleteBtns) btn.addEventListener('click',removeCard);
+    </script>
 <%- include('footer') %>

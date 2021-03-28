@@ -35,9 +35,9 @@ _The following technologies will be used to make this application -_
 - _OpenCage Geocoding API_
 
 #### Screenshots/Demo Video
-![Home](landing.jpeg)
-![contact](contact.jpeg)
-![price](price.jpeg)
+![Home](assets/landing.jpeg)
+![contact](assets/contact.jpeg)
+![price](assets/price.jpeg)
 
 
 #### PPT LINK
