@@ -32,8 +32,8 @@ _The following technologies will be used to make this application -_
 - _Mongoose_
 - _MongoDB Atlas_
 - _Razorpay API_
-- _ AWS amazon lex bot_
-- _ aws elastic beanstalk for hosting the application
+- _AWS lex bot_
+- _AWS elastic beanstalk for hosting the application_
 - _ejs_
 - _ipinfo api_
   
@@ -42,7 +42,7 @@ _The following technologies will be used to make this application -_
 https://drive.google.com/file/d/10uIRYKlqtOHgCgjRiJH5ZL68vEmbI8f_/view
 
 #### demo video LINK
-still working
+https://www.youtube.com/watch?v=8ybNh7t--Bw
 
 
 #### WEBSITE LINK
